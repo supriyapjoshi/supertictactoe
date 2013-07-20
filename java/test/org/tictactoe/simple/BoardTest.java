@@ -15,5 +15,10 @@ public class BoardTest {
 		Assert.assertEquals(board.columns(),3);
 	}
 	
-	
+	@Test
+	public void occupySlot() {
+		Board board = new Board();
+		board.play(0, 0, "X");
+		Assert.assertEquals(8,board.emptySlots());
+	}
 }
