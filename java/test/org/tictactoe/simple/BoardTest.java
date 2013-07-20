@@ -21,4 +21,12 @@ public class BoardTest {
 		board.play(0, 0, "X");
 		Assert.assertEquals(8,board.emptySlots());
 	}
+	
+	@Test
+	public void checkIfPlayedSlotIsValid() {
+		Board board = new Board();
+		Assert.assertTrue(board.play(0, 0, "X"));
+		Assert.assertFalse(board.play(0, 0, "0"));
+		
+	}
 }

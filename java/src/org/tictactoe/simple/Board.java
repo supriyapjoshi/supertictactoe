@@ -14,10 +14,15 @@ public class Board {
 		return simpleBoard[0].length;
 	}
 
-	public void play(int row, int col, String value) {
+	public boolean play(int row, int col, String value) {
 		// TODO Auto-generated method stub
-		simpleBoard[row][col] = value;
-		numberOfEmptySlots--;
+		boolean valid = false;
+		if (simpleBoard[row][col] == null || "".equals(simpleBoard[row][col])) {
+			simpleBoard[row][col] = value;
+			numberOfEmptySlots--;
+			valid = true;
+		}
+		return valid;
 	}
 
 	public int emptySlots() {
