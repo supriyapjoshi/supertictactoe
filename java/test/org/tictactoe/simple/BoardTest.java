@@ -26,7 +26,21 @@ public class BoardTest {
 	public void checkIfPlayedSlotIsValid() {
 		Board board = new Board();
 		Assert.assertTrue(board.play(0, 0, "X"));
+		Assert.assertEquals(8,board.emptySlots());
 		Assert.assertFalse(board.play(0, 0, "0"));
+		Assert.assertEquals(8,board.emptySlots());
 		
 	}
+	
+	@Test
+	public void validateInput() {
+		Board board = new Board();
+		Assert.assertFalse(board.play(0, 0, "M"));
+		Assert.assertTrue(board.play(0,0,"X"));
+		Assert.assertTrue(board.play(0,1,"0"));
+		Assert.assertFalse(board.play(0,0,"X"));
+		Assert.assertFalse(board.play(0,0, null));
+	}
+	
+	
 }
