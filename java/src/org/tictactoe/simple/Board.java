@@ -5,20 +5,17 @@ public class Board {
 	private int numberOfEmptySlots = 9;
 
 	public int rows() {
-		// TODO Auto-generated method stub
 		return simpleBoard.length;
 	}
 
-	public Object columns() {
-		// TODO Auto-generated method stub
+	public int columns() {
 		return simpleBoard[0].length;
 	}
 
 	public boolean play(int row, int col, String value) {
-		// TODO Auto-generated method stub
-		
 		boolean valid = false;
-		if (isInputValueValid(value) && simpleBoard[row][col] == null || "".equals(simpleBoard[row][col])) {
+		if (isInputValueValid(value) && numberOfEmptySlots >0 && 
+				isValidRowAndCol(row, col)) {
 			simpleBoard[row][col] = value;
 			numberOfEmptySlots--;
 			valid = true;
@@ -26,8 +23,15 @@ public class Board {
 		return valid;
 	}
 
+	private boolean isValidRowAndCol(int row, int col) {
+		boolean valid = false;
+		if(simpleBoard[row][col] == null || "".equals(simpleBoard[row][col])) {
+			valid = true;
+		}
+		return valid;
+	}
+
 	private boolean isInputValueValid(String value) {
-		// TODO Auto-generated method stub
 		boolean valid = false;
 		if("X".equals(value) || "0".equals(value)) {
 			valid = true;
@@ -36,8 +40,6 @@ public class Board {
 	}
 
 	public int emptySlots() {
-		// TODO Auto-generated method stub
 		return numberOfEmptySlots;
 	}
-	
 }

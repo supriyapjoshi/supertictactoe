@@ -42,5 +42,26 @@ public class BoardTest {
 		Assert.assertFalse(board.play(0,0, null));
 	}
 	
-	
+	@Test
+	public void validateThatThereAreNoEmptySlots() {
+		Board board = new Board();
+		Assert.assertTrue(board.play(0,0,"X"));
+		Assert.assertTrue(board.play(0,1,"X"));
+		Assert.assertTrue(board.play(0,2,"X"));
+		Assert.assertTrue(board.play(1,0,"X"));
+		Assert.assertTrue(board.play(1,1,"X"));
+		Assert.assertTrue(board.play(1,2,"X"));
+		Assert.assertTrue(board.play(2,0,"X"));
+		Assert.assertTrue(board.play(2,1,"X"));
+		Assert.assertTrue(board.play(2,2,"X"));
+		Assert.assertFalse(board.play(0,0,"X"));
+	}
+	@Test
+	public void checkForWin() {
+		Board board = new Board();
+		board.play(0, 0, "X");
+		board.play(0, 1, "X");
+		board.play(0, 2, "X");
+		//Assert.assertEquals("X", board.whoIsTheWinner());
+	}
 }
